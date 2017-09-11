@@ -1,0 +1,27 @@
+﻿<#@ assembly name="$(TargetDir)csharp_templates_extensions.dll" #>
+<#@ output extension=".cs" #>  
+<#@ import namespace = "System" #>
+<#@ import namespace = "csharp_templates_extensions" #>
+
+using System.Web.Mvc;
+<#= this.Imports.GetImports() #>
+
+namespace <#= this.Namespace #>
+{
+	public class <#= this.ClassName #> : Controller
+	{
+		<#= this.Dependencies.GetPrivateFields() #>
+
+		public <#= this.ClassName #>(<#= this.Dependencies.GetConstructorParameters() #>)
+		{
+			<#= this.Dependencies.GetPrivateFieldsAssignement() #>
+		}
+	} 
+}
+  
+<#+
+	string ClassName = "UserController";
+	string Namespace = "MyApp.MVC.Controllers";
+	Dependencies Dependencies = new Dependencies() { "IFooService", "IFooRepository", "JustFooClass" };
+	Imports Imports = new Imports() { "MyApp.Domain.Repositories", "MyApp.Domain.Services" };
+#>
