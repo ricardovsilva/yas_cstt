@@ -3,6 +3,7 @@
 <#@ import namespace = "System" #>
 <#@ import namespace = "csharp_templates_extensions" #>
 
+using System;
 using System.Web.Mvc;
 <#= this.Imports.GetImports() #>
 
@@ -16,12 +17,15 @@ namespace <#= this.Namespace #>
 		{
 			<#= this.Dependencies.GetPrivateFieldsAssignement() #>
 		}
+
+        <#= this.Actions.GetActions() #>
 	} 
 }
   
 <#+
-	string ClassName = "UserController";
+	string ClassName = "AutoController";
 	string Namespace = "MyApp.MVC.Controllers";
-	Dependencies Dependencies = new Dependencies() { "IFooService", "IFooRepository", "JustFooClass" };
-	Imports Imports = new Imports() { "MyApp.Domain.Repositories", "MyApp.Domain.Services" };
+	Dependencies Dependencies = new Dependencies() { "IFooService", };
+	Imports Imports = new Imports() { "MyApp.Domain.Repositories" };
+    Actions Actions = new Actions() { "List", "Create", "Delete", "Update" };
 #>

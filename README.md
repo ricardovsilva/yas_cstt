@@ -17,6 +17,7 @@ Clone this repository, then open solution in a new Visual Studio Instance. Open 
 	string Namespace = "MyApp.MVC.Controllers";
 	Dependencies Dependencies = new Dependencies() { "IFooService", "IFooRepository", "JustFooClass" };
 	Imports Imports = new Imports() { "MyApp.Domain.Repositories", "MyApp.Domain.Services" };
+	Actions Actions = new Actions() { "List", "Create", "Delete", "Update" };
 #>
 ```
 
@@ -45,6 +46,26 @@ namespace MyApp.MVC.Controllers
 			this.fooService = fooService;
 			this.fooRepository = fooRepository;
 			this.justFooClass = justFooClass;
+		}
+
+		public ActionResult List()
+		{
+			throw new NotImplementedException();
+		}
+
+		public ActionResult Create()
+		{
+			throw new NotImplementedException();
+		}
+
+		public ActionResult Delete()
+		{
+			throw new NotImplementedException();
+		}
+
+		public ActionResult Update()
+		{
+			throw new NotImplementedException();
 		}
 	}
 }
